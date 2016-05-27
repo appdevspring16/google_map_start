@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Places
+    <a href="/places/new" class="btn btn-lg btn-success">New Place</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Description</th>
+        <th>Lat</th>
+        <th>Lng</th>
+        <th>Color</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @places.each do |place| %>
+      <tr>
+        <td><%= place.name %></td>
+        <td><%= place.address %></td>
+        <td><%= place.description %></td>
+        <td><%= place.lat %></td>
+        <td><%= place.lng %></td>
+        <td><%= place.color %></td>
+        <td>
+          <a href="/places/<%= place.id %>" class="btn btn-primary">Show</a>
+          <a href="/places/<%= place.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_place/<%= place.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

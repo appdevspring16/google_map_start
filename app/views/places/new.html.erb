@@ -1,0 +1,82 @@
+<!-- Validation failure messages -->
+<% if @place.errors.any? %>
+  <% @place.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Place</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_place" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @place.name %>">
+      </div>
+
+      <!-- Label and input for address -->
+      <div class="form-group">
+        <label for="address" class="control-label">
+          Address
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @place.address %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="<%= @place.description %>">
+      </div>
+
+      <!-- Label and input for lat -->
+      <div class="form-group">
+        <label for="lat" class="control-label">
+          Lat
+        </label>
+
+        <input type="text" id="lat" name="lat" placeholder="Lat" class="form-control" value="<%= @place.lat %>">
+      </div>
+
+      <!-- Label and input for lng -->
+      <div class="form-group">
+        <label for="lng" class="control-label">
+          Lng
+        </label>
+
+        <input type="text" id="lng" name="lng" placeholder="Lng" class="form-control" value="<%= @place.lng %>">
+      </div>
+
+      <!-- Label and input for color -->
+      <div class="form-group">
+        <label for="color" class="control-label">
+          Color
+        </label>
+
+        <input type="text" id="color" name="color" placeholder="Color" class="form-control" value="<%= @place.color %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Place
+      </button>
+      or
+      <a href="/places">Cancel</a>
+    </form>
+  </div>
+</div>
