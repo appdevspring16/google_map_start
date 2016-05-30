@@ -13,10 +13,6 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
 
-  def index_map
-    @places = Place.all
-  end
-
   def show
     @place = Place.find(params[:id])
   end
